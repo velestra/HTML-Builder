@@ -13,6 +13,7 @@ const rl = readline.createInterface ({
 });
 function manageInput(input) {
   if(input.trim().toLowerCase() === 'exit') {
+    console.log('Goodbye!');
     process.exit();
   }
   writeFile.write(`${input}\n`);
@@ -22,5 +23,7 @@ function manageInput(input) {
 rl.question('', manageInput);
 
 process.on('SIGINT', () => {
+  console.log('Goodbye!');
+  writeFile.end();
   process.exit();
 });
